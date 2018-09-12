@@ -48,7 +48,7 @@ fn expand_draw_u8(cx: &mut ExtCtxt, sp: Span, args: &[TokenTree])
     }
 
     let text = match args[0] {
-        TokenTree::Token(_, token::Ident(s)) => {
+        TokenTree::Token(_, token::Ident(s, false)) => {
             let s = s.to_string();
             if s.len() > 8 {
                 cx.span_err(sp, "argument should be 8 characters or less");
